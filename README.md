@@ -16,6 +16,6 @@ A PWA to generate TOTP two factor authentication codes.
 
 ### PWA Stuff
 
-- 95/100 on Lighthouse test
+- 100/100 on Lighthouse test
 - Works offline (uses sw-precache: run this before publishing `npm run precache`)
 - Can be added to home screen
