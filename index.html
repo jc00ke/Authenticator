@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Authenticator</title>
+
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Progressive Web App">
+  <meta name="theme-color" content="#2E3AA1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Authenticator">
+  <link rel="icon" sizes="192x192" href="images/icons/chrome-touch-icon-192x192.png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="app">
+  <div class="topbar fixed">
+    <div class="left title">
+      <a href="#/main" class="wordlogo">Authenticator</a>
+    </div>
+    <div class="right">
+      <a href="#/add" class="navbutton">Add</a>
+      <a href="#/settings" class="navbutton">Settings</a>
+    </div>
+  </div>
+  <div class="content">
+    <div class="view view-main">
+      <div class="accounts"></div>
+    </div>
+    <div class="view view-add">
+      <div style="margin-left: 5%;width: 89%;margin-right: 5%;">
+        <div class="group">
+          <div class="label">Enter Information Manually</div>
+          <input type="text" name="tlabel" placeholder="Label" class="tlabel" style="width: 100%;padding: 8px 4px;"><br>
+          <input type="text" name="secret" placeholder="Secret" class="secret" style="width: 100%;padding: 8px 4px;"><br>
+          <a class="add button" style="padding: 4px 8px;">Add</a><br>
+        </div>
+        <div class="group">
+          <div class="label">Scan QR Code</div>
+          <div id="previewlabel">Camera not accessible. Please manually enter the secret and label above.</div>
+          <video id="preview" style="width: 100%;transform: rotateX(180deg) rotateZ(180deg);-webkit-transform:rotateX(180deg) rotateZ(180deg);-moz-transform:rotateX(180deg) rotateZ(180deg);"></video>
+        </div>
+      </div>
+    </div>
+    <div class="view view-settings">
+      <div class="group">
+        <div class="label">About</div>
+        Authenticator v1.0.0<br>
+        Copyright 2017 Patrick G (@geek1011)<br>
+        <br>
+        Note: All information is stored offline in the localstorage, which may be cleared by your browser. State information is stored in the url hash, which is never transmitted to external servers.
+      </div>
+      <div class="group">
+        <div class="label">Backup and Restore</div>
+        <a href="#/export">Export</a>
+      </div>
+      <div class="group">
+        <div class="label">Other</div>
+        <a href="https://github.com/geek1011/Authenticator">GitHub</a><br>
+        <a href="https://github.com/geek1011/Authenticator/issues">Report a bug</a><br>
+      </div>
+      <div class="group">
+        <div class="label">More Apps by Patrick G</div>
+        <a href="https://geek1011.github.io/DRTApp">DRTApp</a><br>
+      </div>
+    </div>
+    <div class="view view-export">
+      <div class="group">
+        <div class="label">URL</div>
+        <div class="url"></div>
+      </div>
+      <div class="group">
+        <div class="label">QR Code</div>
+        <canvas class="qr"></canvas>
+      </div>
+      <div class="group">
+        <div class="label">JSON</div>
+        <div class="json"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/lodash.min.js"></script>
+  <script src="js/es6-promise.auto.min.js"></script>
+  <script src="js/classList.min.js"></script>
+  <script src="js/sha1.js"></script>
+  <script src="js/qrious.min.js"></script>
+  <script src="js/lz-string.min.js"></script>
+  <script src="js/instascan.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
