@@ -253,7 +253,7 @@ Authenticator.views.add.show = function (data) {
                 alert("Unsupported OTP scheme")
             }
         } else if (content.split("#")[0] == window.location.toString().split("#")[0]) {
-            window.location = content;
+            window.location.hash = content.split("#")[1];
         } else {
             alert("Not a TOTP QR code")
         }
