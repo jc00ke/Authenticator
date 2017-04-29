@@ -77,7 +77,8 @@ Authenticator.promises.getTOTP = function (label, secret) {
             }
             var otp = (hex2dec(hmac.substr(offset * 2, 8)) & hex2dec("7fffffff")) + "";
             otp = otp.substr(otp.length - 6, 6);
-            result.code = otp;
+            result.intcode = otp;
+            result.code = otp.substr(0,3) + " " + otp.substr(3,6);
             var epoch = Math.round((new Date).getTime() / 1e3);
             result.time = 30 - epoch % 30;
             result.label = label;
